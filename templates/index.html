@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Blog</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        .post { border: 1px solid #ccc; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        a { text-decoration: none; color: #0066cc; }
+    </style>
+</head>
+<body>
+    <h1>My Blog</h1>
+    <a href="{{ url_for('new_blog') }}">➕ Write a new post</a>
+    <hr>
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <small>Posted on {{ post.created_at }}</small>
+        </div>
+    {% else %}
+        <p>No blog posts yet.</p>
+    {% endfor %}
+</body>
+</html>
