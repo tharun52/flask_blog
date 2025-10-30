@@ -10,7 +10,7 @@ def get_db_connection():
         host=os.getenv('DB_ENDPOINT'),
         user=os.getenv('DB_USERNAME'),
         password=os.getenv('DB_PASSWORD'),
-        database='appdb',
+        database='database-1',
         cursorclass=pymysql.cursors.DictCursor
     )
 
