@@ -1,6 +1,17 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import pymysql
 import os
+def load_env_file(path):
+    try:
+        with open(path) as f:
+            for line in f:
+                if line.strip() and not line.startswith("#"):
+                    key, value = line.strip().split("=", 1)
+                    os.environ[key] = value
+    except FileNotFoundError:
+        pass
+
+load_env_file("/home/ubuntu/flask_blog/.env")
 
 app = Flask(__name__)
 
